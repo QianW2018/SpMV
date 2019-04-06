@@ -10,10 +10,10 @@ B = np.array([[1],[2],[3],[4],[5]])
 
 rowNum = int(A.shape[0])
 columnNum = int(A.shape[1])
-Value = np.array([])
-Column = np.array([])
-RowPtr = np.array([])
-Result = np.array([])
+Value = np.array([], dtype = int)
+Column = np.array([], dtype = int)
+RowPtr = np.array([], dtype = int)
+Result = np.array([], dtype = int)
 
 
 for i in range(rowNum):

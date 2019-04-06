@@ -23,7 +23,7 @@ count = max(count)
 
 NonZerosEntries = [[0 for i in range(count)] for j in range(rowNum)]
 Column = [[-1 for i in range(count)] for j in range(rowNum)]
-Result = np.array([])
+Result = np.array([], dtype = int)
 
 
 for i in range(rowNum):
