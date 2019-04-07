@@ -37,4 +37,5 @@ def coo(matrix1, matrix2):
     print ("COO result is:", Result)
 
 
-coo(A, B)
+if __name__ == "__main__":
+    coo(A,B)

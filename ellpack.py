@@ -50,4 +50,5 @@ def ellpack(matrix1, matrix2):
     print ("Ellpack result is: ", Result)
 
 
-ellpack(A, B)
+if __name__ == "__main__":
+    ellpack(A,B)
