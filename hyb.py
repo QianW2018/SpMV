@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from ellpack import ellpack
-from coo import coo
 
 #HYB format
 A = np.array([[1,0,0,0,0],[0,0,2,3,1],[0,4,0,0,5],[0,0,6,0,0],[0,0,0,7,0],[0,0,0,0,8]])
