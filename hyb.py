@@ -11,42 +11,36 @@ B = np.array([[1],[2],[3],[4],[5]])
 def hyb(matrix1, matrix2):
     rowNum = int(matrix1.shape[0])
     columnNum = int(matrix1.shape[1])
-    reformatMatrix = [[0 for i in range(columnNum)] for j in range(rowNum)]
-    count = np.array([], dtype = int)
+    count = [0 for j in range(rowNum)]
+    ellMatrixTemp = [[0 for i in range(columnNum)] for j in range(rowNum)]
 
-
-
-    # reformat matrix
+    #generate count matrix
     for i in range(rowNum):
-        c = 0
+        k = 0
         for j in range(columnNum):
             if matrix1[i][j] != 0:
-                reformatMatrix[i][c] = matrix1[i][j]
-                c += 1
-    reformatMatrix = np.array(reformatMatrix)
+                count[i] += 1
+                ellMatrixTemp[i][k] = matrix1[i][j]
+                k += 1
+    ellMatrixTemp = np.array(ellMatrixTemp)
 
 
-    # calculate matrix density and slice matrix
-    for j in range(columnNum):
-        count = np.append(count, 0)
-        for i in range(rowNum):
-            if reformatMatrix[i][j] != 0:
-                count[j] += 1
-
-    breakline = 0
-    for i in range(len(count)):
-        percTemp = float(count[i])/rowNum
-        if percTemp < 0.3:
-            breakline = i
+    #calculate breakline
+    breakline = -1
+    zeroCount = 0
+    while 1:
+        zeroPercent = float(zeroCount)/rowNum
+        if zeroPercent > 0.67:
             break
+        for i in range(len(count)):
+            if count[i] == 0:
+                zeroCount += 1
+            else:
+                count[i] -= 1
+        breakline += 1
 
 
-    #sliced matrix
-    ellMatrix = reformatMatrix[..., 0:i]
-    cooMatrix = reformatMatrix[..., i:]
-
-
-    # calculate column indices for Ellpack
+    #record column indices for Ellpack calculation
     column = [[-1 for i in range(breakline)] for j in range(rowNum)]
     r = 0
     for i in range(rowNum):
@@ -56,6 +50,10 @@ def hyb(matrix1, matrix2):
                 column[r][c] = j
                 c += 1
         r += 1
+
+
+    #slice ellMatrix
+    ellMatrix = ellMatrixTemp[..., 0:breakline]
 
 
     #Ellpack calculation
