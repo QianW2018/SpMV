@@ -63,7 +63,7 @@ def hyb(matrix1, matrix2):
         for j in range(breakline):
                 tempELL += ellMatrix[i][j] * matrix2[column[i][j]]
         ResultELL = np.append(ResultELL, tempELL)
-    print("Ellpack result is:", ResultELL)
+
 
 
     #COO calculation
@@ -93,15 +93,15 @@ def hyb(matrix1, matrix2):
     for i in range(len(tempCOO)):
         ResultCOO = np.append(ResultCOO, tempCOO[i])
 
-    print ("COO result is:", ResultCOO)
-
 
     # COO plus ellpack
 
     Result = ResultCOO + ResultELL
-    print ("HYB result is:", Result)
 
 
 
 if __name__ == "__main__":
     hyb(A,B)
+    print("Ellpack result is:", ResultELL)
+    print ("COO result is:", ResultCOO)
+    print ("HYB result is:", Result)

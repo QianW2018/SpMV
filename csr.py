@@ -29,12 +29,8 @@ def csr(matrix1, matrix2):
 
     RowPtr = np.append(RowPtr, 8)
 
-"""    print (Value)
-    print (Column)
-    print (RowPtr)"""
 
-
-    #CSR kernel: A x B
+#CSR kernel: A x B
     for i in range(rowNum):
         start = int(RowPtr[i])
         end = int(RowPtr[i + 1])
@@ -45,7 +41,8 @@ def csr(matrix1, matrix2):
         Result = np.append(Result, temp)
 
 
-    print (Result)
 
 
-csr(A, B)
+if __name__ == "__main__":
+    csr(A,B)
+    print ("CSR result is:", Result)

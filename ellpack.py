@@ -47,8 +47,9 @@ def ellpack(matrix1, matrix2):
                 temp += NonZerosEntries[i][j] * matrix2[Column[i][j]]
         Result = np.append(Result, temp)
 
-    print ("Ellpack result is: ", Result)
+
 
 
 if __name__ == "__main__":
     ellpack(A,B)
+    print ("Ellpack result is: ", Result)

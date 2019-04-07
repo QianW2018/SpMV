@@ -34,8 +34,9 @@ def coo(matrix1, matrix2):
     for i in range(len(temp)):
         Result = np.append(Result, temp[i])
 
-    print ("COO result is:", Result)
+
 
 
 if __name__ == "__main__":
     coo(A,B)
+    print ("COO result is:", Result)
