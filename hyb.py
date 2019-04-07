@@ -105,4 +105,5 @@ def hyb(matrix1, matrix2):
 
 
 
-hyb(A, B)
+if __name__ == "__main__":
+    hyb(A,B)
